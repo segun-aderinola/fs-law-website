@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FS Law - Immigration Law Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="fixed w-full bg-white/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300" 
+            x-data="{ mobileMenuOpen: false, scrolled: false }" 
+            @scroll.window="scrolled = (window.pageYOffset > 20)"
+            :class="{ 'py-2': scrolled, 'py-4': !scrolled }">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="h-12 w-12 relative">
+                    <svg viewBox="0 0 100 100" class="absolute inset-0">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#8B0000" stroke-width="2"/>
+                        <path d="M30,35 Q50,25 70,35 Q50,45 30,35" fill="#8B0000"/>
+                        <rect x="35" y="40" width="30" height="25" fill="none" stroke="#8B0000" stroke-width="1.5"/>
+                        <line x1="25" y1="50" x2="75" y2="50" stroke="#8B0000" stroke-width="1"/>
+                        <line x1="25" y1="60" x2="75" y2="60" stroke="#8B0000" stroke-width="1"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-800">FS <span class="text-primary">Law</span></h1>
+                    <p class="text-xs text-gray-600">A Professional Corporation</p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Home</a>
+                <a href="services.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Services</a>
+                <a href="about.html" class="text-gray-700 hover:text-primary transition-colors font-medium">About</a>
+                <a href="contact.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Contact</a>
+            </nav>
+
+            <!-- CTA Buttons -->
+            <div class="hidden lg:flex items-center space-x-3">
+                <button class="px-4 py-2 rounded-lg btn-outline text-sm font-medium">Send a message</button>
+                <button class="px-4 py-2 rounded-lg btn-outline text-sm font-medium">Consultation</button>
+                <button class="px-4 py-2 rounded-lg btn-primary text-sm font-medium">Make a payment</button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-16 min-h-screen flex items-center bg-cover bg-center" 
+             style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-8">
+                    <i class="fas fa-globe-americas text-6xl text-gold mb-6 icon-float"></i>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+                    Immigration <span class="text-gold">Law</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed">
+                    Comprehensive business immigration services to individuals and corporations from all over the world
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="px-8 py-4 rounded-full btn-primary text-lg font-medium">
+                        Get Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20" id="about">
+        <div class="container mx-auto px-4">
+            <div class="service-card p-12 scroll-reveal">
+                <div class="flex items-center mb-8">
+                    <i class="fas fa-info-circle text-4xl text-primary mr-6"></i>
+                    <h2 class="text-4xl font-bold text-primary">About the Service</h2>
+                </div>
+                <p class="text-gray-700 text-xl leading-relaxed">
+                    We provide comprehensive business immigration services to individuals and corporations from all over the world. 
+                    Our experienced team of immigration attorneys navigates the complex U.S. immigration system to help you achieve 
+                    your goals, whether you're seeking temporary work authorization, permanent residency, or citizenship.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20" id="services">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-primary mb-6">Immigration Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive immigration solutions tailored to your specific needs and circumstances
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <!-- Visitor Visas -->
+                <div class="accordion-item scroll-reveal" x-data="{ open: false }">
+                    <div class="accordion-header p-8 flex justify-between items-center" @click="open = !open">
+                        <div class="flex items-center">
+                            <i class="fas fa-passport text-primary text-2xl mr-6"></i>
+                            <h3 class="text-2xl font-bold">Visitor Visas</h3>
+                        </div>
+                        <i class="fas fa-chevron-down text-xl transition-transform duration-300" :class="{ 'rotate-180': open }"></i>
+                    </div>
+                    <div class="accordion-content" :class="{ 'open': open }">
+                        <div class="p-8 pt-0 space-y-8">
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">B-1 Visa:</h4>
+                                <p class="text-gray-700 leading-relaxed">This visa classification is relevant for individuals seeking entry to the United States to engage in temporary business activities. It permits business activities like conventions, conferences, consultations, and other legitimate commercial and professional activities. This category does not allow individuals to engage in local employment for hire within the United States.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">B-2 Visa:</h4>
+                                <p class="text-gray-700 leading-relaxed">This visa classification is relevant for individuals planning to visit the United States for pleasure. It is appropriate for tourism, social visits, certain medical treatments, and participation in amateur sports, music and related events.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">Visa Waiver Program:</h4>
+                                <p class="text-gray-700 leading-relaxed">The Visa Waiver Program (VWP) is available to citizens of a specified list of countries. The VWP facilitates routine travel for up to 90 days for business or pleasure by eliminating the need to apply for a visa at a U.S. consulate prior to entry. However, it contains strict prohibitions on obtaining extensions or changes of status within the United States.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work Visas -->
+                <div class="accordion-item scroll-reveal" x-data="{ open: false }">
+                    <div class="accordion-header p-8 flex justify-between items-center" @click="open = !open">
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-primary text-2xl mr-6"></i>
+                            <h3 class="text-2xl font-bold">Work Visas</h3>
+                        </div>
+                        <i class="fas fa-chevron-down text-xl transition-transform duration-300" :class="{ 'rotate-180': open }"></i>
+                    </div>
+                    <div class="accordion-content" :class="{ 'open': open }">
+                        <div class="p-8 pt-0 space-y-8">
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">H1B Visa:</h4>
+                                <p class="text-gray-700 leading-relaxed">The H1B visa permits a foreign national to work in the United States temporarily for offers of employment that are in a specialty occupation. H1B visas are numerically limited, with a total of 85,000 visas available each fiscal year (20,000 of these visas are restricted to individuals who have received master's degrees or higher from U.S colleges or universities).</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">L1 Visa:</h4>
+                                <p class="text-gray-700 leading-relaxed">The L-1 visa is appropriate for the transfer of specified types of employees within multinational companies. This visa permits a U.S. company to temporarily transfer certain employees from an affiliated foreign company. The employee must be offered employment in either an executive / managerial position or in a specialized knowledge position to qualify for this classification.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">E-3 Visa:</h4>
+                                <p class="text-gray-700 leading-relaxed">The E-3 visa permits U.S. employers to hire Australian nationals as "specialty workers" in certain professional occupations and employ them in the United States on a temporary basis. Initial E-3 status may be issued for a maximum of two years, but E-3 status may be renewed indefinitely, in two-year increments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Work Visas -->
+                <div class="accordion-item scroll-reveal" x-data="{ open: false }">
+                    <div class="accordion-header p-8 flex justify-between items-center" @click="open = !open">
+                        <div class="flex items-center">
+                            <i class="fas fa-users text-primary text-2xl mr-6"></i>
+                            <h3 class="text-2xl font-bold">Other Work Visas</h3>
+                        </div>
+                        <i class="fas fa-chevron-down text-xl transition-transform duration-300" :class="{ 'rotate-180': open }"></i>
+                    </div>
+                    <div class="accordion-content" :class="{ 'open': open }">
+                        <div class="p-8 pt-0 space-y-8">
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">E-1 and E-2 visas:</h4>
+                                <p class="text-gray-700 leading-relaxed">The E-1 (treaty trader) and E-2 visas (treaty investor) allow nationals of countries having commercial treaties with the United States to engage in trade or business investment activities.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">H2B Visa:</h4>
+                                <p class="text-gray-700 leading-relaxed">The H2B visa allows for entry of certain short-term, temporary workers.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">O Visa:</h4>
+                                <p class="text-gray-700 leading-relaxed">The O visa is for persons of extraordinary ability in the arts, sciences, education, business, or athletics.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">P-1, P-2, and P-3 visas:</h4>
+                                <p class="text-gray-700 leading-relaxed">The P-1, P-2, and P-3 visas are for certain types of performers and athletes.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">Q visa:</h4>
+                                <p class="text-gray-700 leading-relaxed">The Q visa allows entry to persons participating in an international cultural exchange program designated by the USCIS, intended to provide foreign citizens with practical training in the United States, while permitting them to introduce the culture, history, and traditions of their respective home countries to the United States.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">R Visa:</h4>
+                                <p class="text-gray-700 leading-relaxed">The R visa is for religious workers.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">TN Visa:</h4>
+                                <p class="text-gray-700 leading-relaxed">The TN category is a potential option for citizens of Canada and Mexico who wish to work in the United States. It is for professionals, who are offered employment in a specific occupation listed in the North American Free Trade Agreement (NAFTA).</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">H-3 Visa:</h4>
+                                <p class="text-gray-700 leading-relaxed">The H-3 category allows noncitizens coming temporarily to the United States as either a: Trainee to receive training in any field of endeavor, other than graduate medical education or training, that is not available in the noncitizen's home country or Special Education Exchange Visitor to participate in a special education exchange visitor training program that provides for practical training and experience in the education of children with physical, mental, or emotional disabilities.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">International Entrepreneur Rule:</h4>
+                                <p class="text-gray-700 leading-relaxed">International Entrepreneur Rule permits the use of parole for "entrepreneurs of start-up entities whose entry into the United States would provide a significant public benefit through the substantial and demonstrated potential for rapid business growth and job creation."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Permanent Resident (Employment Based) -->
+                <div class="accordion-item scroll-reveal" x-data="{ open: false }">
+                    <div class="accordion-header p-8 flex justify-between items-center" @click="open = !open">
+                        <div class="flex items-center">
+                            <i class="fas fa-id-card text-primary text-2xl mr-6"></i>
+                            <h3 class="text-2xl font-bold">Permanent Resident /Green Card (Employment Based)</h3>
+                        </div>
+                        <i class="fas fa-chevron-down text-xl transition-transform duration-300" :class="{ 'rotate-180': open }"></i>
+                    </div>
+                    <div class="accordion-content" :class="{ 'open': open }">
+                        <div class="p-8 pt-0 space-y-8">
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">EB-1:</h4>
+                                <p class="text-gray-700 leading-relaxed">The employment-based, first preference (EB1), or priority workers, category is reserved for persons of extraordinary ability (EB1(a)), outstanding professors and researchers (EB1(b)), and multinational executives and managers (EB1(c)).</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">EB 2:</h4>
+                                <p class="text-gray-700 leading-relaxed">This employment-based, second preference visa is available if you are a member of the professions holding an advanced degree or its equivalent, or a foreign national who has exceptional ability.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">EB2 NIW:</h4>
+                                <p class="text-gray-700 leading-relaxed">The EB2 national interest waiver (NIW) category involves members of the professions who hold advanced degrees or persons of exceptional ability. Although the EB2 category normally requires an employer and a labor certification, the Attorney General may waive this requirement if the work by the applicant is in the national interest.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">EB 3:</h4>
+                                <p class="text-gray-700 leading-relaxed">You may be eligible for this immigrant visa preference category if you are a skilled worker, professional, or other workers. The "other workers" subcategory is for persons performing unskilled labor requiring less than 2 years training, education, or experience, not of a temporary or seasonal nature.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">EB4:</h4>
+                                <p class="text-gray-700 leading-relaxed">The EB4 category is for a broad group of special immigrants that most commonly includes religious workers, broadcasters, Iraqi / Afghan translators, Iraqis who have assisted the United States, international organization employees, certain physicians, armed forces members, Panama Canal zone employees, retired NATO-6 employees, as well as spouses and children of deceased NATO-6 employees.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-6">
+                                <h4 class="font-bold text-xl mb-3 text-primary">EB 5:</h4>
+                                <p class="text-gray-700 leading-relaxed">The EB5 category is reserved for foreign nationals who invest one million dollars in a new commercial enterprise that employs ten or more U.S. citizens or authorized immigrant workers. (Investment of $500,000 is required if it is in a rural area or in an area of high unemployment.) EB5 investors obtain lawful permanent resident (LPR) status on a conditional basis valid for two years. After the expiration of the initial two-year period, EB5 investors have to file a separate application with the USCIS to remove conditions on their LPR status.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Permanent Resident (Diversity Visa/Lottery) -->
+                <div class="accordion-item scroll-reveal" x-data="{ open: false }">
+                    <div class="accordion-header p-8 flex justify-between items-center" @click="open = !open">
+                        <div class="flex items-center">
+                            <i class="fas fa-ticket-alt text-primary text-2xl mr-6"></i>
+                            <h3 class="text-2xl font-bold">Permanent Resident /Green Card (Diversity Visa/Lottery)</h3>
+                        </div>
+                        <i class="fas fa-chevron-down text-xl transition-transform duration-300" :class="{ 'rotate-180': open }"></i>
+                    </div>
+                    <div class="accordion-content" :class="{ 'open': open }">
+                        <div class="p-8 pt-0">
+                            <div class="border-l-4 border-primary pl-6">
+                                <p class="text-gray-700 leading-relaxed text-lg">The U.S. Department of State (DOS) conducts an annual visa lottery program. This program, allocates 50,000 immigrant visa numbers each year. These visa numbers are granted to individuals who are chargeable to countries with low rates of emigration to the U.S.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Ready to Start Your Immigration Journey?
+                </h2>
+                <p class="text-xl text-white/90 mb-12">
+                    Let our experienced immigration attorneys guide you through the complex process and help you achieve your American dream.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="contact.html" class="px-10 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+                        Schedule Consultation
+                    </a>
+                    <a href="contact.html" class="px-10 py-4 rounded-full border-2 border-white text-white font-bold text-lg hover:bg-white hover:text-primary transition-all duration-300">
+                        Get Free Assessment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+         <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Logo & Info -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="https://res.cloudinary.com/deh3s35go/image/upload/v1746520687/fslawpc-logo-3.82ef1b86_dmo2nv.svg"
+                            alt="FS Law Logo" class="h-12">
+                    </div>
+                    <p class="text-gray-400 mb-4">Texas Business and Immigration Law Firm serving clients worldwide with
+                        over 40 years of combined legal experience.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Our Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html#immigration"
+                                class="text-gray-400 hover:text-white transition">Immigration Law</a></li>
+                        <li><a href="services.html#business" class="text-gray-400 hover:text-white transition">Business
+                                Law</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+                            <span class="text-gray-400">6911 South Highway 6, Suite 210<br>Houston, TX 77083</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary"></i>
+                            <a href="tel:+18328664580" class="text-gray-400 hover:text-white transition">+1 832 866
+                                4580</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-primary"></i>
+                            <a href="https://wa.me/17139697558" class="text-gray-400 hover:text-white transition">+1 713
+                                969 7558</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary"></i>
+                            <span class="text-gray-400">India: <a href="tel:+918547479258"
+                                    class="hover:text-white transition">+91 854 747 9258</a></span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary"></i>
+                            <span class="text-gray-400">Qatar: <a href="tel:+97466333189"
+                                    class="hover:text-white transition">+974 6633 3189</a></span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            <a href="mailto:info@fslawpc.com"
+                                class="text-gray-400 hover:text-white transition">info@fslawpc.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2025 FS Law, A Professional Corporation. All
+                        rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-500 hover:text-white text-sm transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-500 hover:text-white text-sm transition">Terms of Service</a>
+                        <a href="#" class="text-gray-500 hover:text-white text-sm transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

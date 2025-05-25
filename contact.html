@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - FS Law</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body class="bg-gray-50" x-data="{ messageModal: false }">
+    <!-- Header -->
+    <header class="fixed w-full bg-white/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300"
+        x-data="{ mobileMenuOpen: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)"
+        :class="{ 'py-2': scrolled, 'py-4': !scrolled }">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="https://res.cloudinary.com/deh3s35go/image/upload/v1746520687/fslawpc-logo-3.82ef1b86_dmo2nv.svg"
+                    class="h-12" alt="FS Law Logo">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-light transition-colors font-medium">Home</a>
+                <a href="services.html"
+                    class="text-gray-700 hover:text-primary transition-colors font-medium">Services</a>
+                <a href="about.html" class="font-medium">About</a>
+                <a href="contact.html"
+                    class="text-primary hover:text-primary transition-colors font-medium">Contact</a>
+            </nav>
+
+            <!-- CTA Buttons -->
+            <div class="hidden lg:flex items-center space-x-3">
+                <button class="px-4 py-2 rounded-lg btn-outline text-sm font-medium">Consultation</button>
+                <button class="px-4 py-2 rounded-lg btn-primary text-sm font-medium">Make a payment</button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" x-transition
+            class="lg:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t">
+            <nav class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-2">Home</a>
+                <a href="services.html" class="text-gray-700 hover:text-primary font-medium py-2">Services</a>
+                <a href="about.html" class="text-primary font-medium py-2">About</a>
+                <a href="contact.html" class="text-primary hover:text-light font-medium py-2">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title Section -->
+    <section class="pt-32 pb-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fadeInUp">Contact Us</h1>
+            <p class="text-lg text-gray-600 mb-6 max-w-3xl animate-fadeInUp delay-100">
+                Reach out to our experienced team for legal assistance with business and immigration matters. We're here to help clients worldwide.
+            </p>
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="index.html" class="text-gray-700 hover:text-primary">
+                            <i class="fas fa-home mr-2"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <span class="mx-2 text-gray-400">/</span>
+                            <span class="text-primary">Contact</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="animate-fadeInUp">
+                    <div class="bg-white rounded-xl shadow-lg p-8 h-full">
+                        <h2 class="text-3xl font-bold mb-8 relative after:absolute after:bottom-0 after:left-0 after:h-1 after:w-16 after:bg-primary after:-mb-3">
+                            Get In Touch
+                        </h2>
+                        
+                        <div class="space-y-10 mt-12">
+                            <!-- Office Address -->
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-primary text-2xl"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Office Address</h3>
+                                    <p class="text-gray-700 mb-1">
+                                        6911 South Highway 6, Suite 210
+                                    </p>
+                                    <p class="text-gray-700">
+                                        Houston, TX, 77083
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Phone Numbers -->
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-phone-alt text-primary text-2xl"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Call Us</h3>
+                                    <p class="text-gray-700 mb-1">
+                                        <span class="font-medium">Houston:</span> 
+                                        <a href="tel:+18328664580" class="hover:text-primary transition">+1 832 866 4580</a>
+                                    </p>
+                                    <p class="text-gray-700 mb-1">
+                                        <span class="font-medium">WhatsApp:</span> 
+                                        <a href="https://wa.me/17139697558" class="hover:text-primary transition">+1 713 969 7558</a>
+                                    </p>
+                                    <p class="text-gray-700 mb-1">
+                                        <span class="font-medium">India:</span> 
+                                        <a href="tel:+918547479258" class="hover:text-primary transition">+91 854 747 9258</a>
+                                    </p>
+                                    <p class="text-gray-700">
+                                        <span class="font-medium">Qatar:</span> 
+                                        <a href="tel:+97466333189" class="hover:text-primary transition">+974 663 33189</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-primary text-2xl"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Email Us</h3>
+                                    <p class="text-gray-700">
+                                        <a href="mailto:info@fslawpc.com" class="hover:text-primary transition">info@fslawpc.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Working Hours -->
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-clock text-primary text-2xl"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Working Hours</h3>
+                                    <p class="text-gray-700 mb-1">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                    <p class="text-gray-700">Saturday & Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="animate-fadeInUp delay-200" id="consultation">
+                    <div class="bg-white rounded-xl shadow-lg p-8 h-full">
+                        <h2 class="text-3xl font-bold mb-8 relative after:absolute after:bottom-0 after:left-0 after:h-1 after:w-16 after:bg-primary after:-mb-3">
+                            Send Us a Message
+                        </h2>
+                        
+                        <form class="mt-12 space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"></textarea>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input type="checkbox" id="terms" name="terms" class="w-4 h-4 text-primary focus:ring-primary border-gray-300 rounded">
+                                <label for="terms" class="ml-2 block text-sm text-gray-700">
+                                    I agree to <a href="#" class="text-blue-500 hover:underline">terms of use</a> and <a href="#" class="text-blue-500 hover:underline">privacy policy</a>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="px-6 py-3 rounded-md btn-primary text-white font-medium transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <!-- <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Our Location</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    Our office is conveniently located in Houston, Texas. Visit us today or schedule a consultation.
+                </p>
+            </div>
+            
+            <div class="map-container shadow-lg">
+                <img src="" alt="Map location" class="w-full h-full object-cover" />
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Logo & Info -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="https://res.cloudinary.com/deh3s35go/image/upload/v1746520687/fslawpc-logo-3.82ef1b86_dmo2nv.svg"
+                            alt="FS Law Logo" class="h-12">
+                    </div>
+                    <p class="text-gray-400 mb-4">Texas Business and Immigration Law Firm serving clients worldwide with
+                        over 40 years of combined legal experience.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Our Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html#immigration"
+                                class="text-gray-400 hover:text-white transition">Immigration Law</a></li>
+                        <li><a href="services.html#business" class="text-gray-400 hover:text-white transition">Business
+                                Law</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+                            <span class="text-gray-400">6911 South Highway 6, Suite 210<br>Houston, TX 77083</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary"></i>
+                            <a href="tel:+18328664580" class="text-gray-400 hover:text-white transition">+1 832 866
+                                4580</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-primary"></i>
+                            <a href="https://wa.me/17139697558" class="text-gray-400 hover:text-white transition">+1 713
+                                969 7558</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary"></i>
+                            <span class="text-gray-400">India: <a href="tel:+918547479258"
+                                    class="hover:text-white transition">+91 854 747 9258</a></span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary"></i>
+                            <span class="text-gray-400">Qatar: <a href="tel:+97466333189"
+                                    class="hover:text-white transition">+974 6633 3189</a></span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            <a href="mailto:info@fslawpc.com"
+                                class="text-gray-400 hover:text-white transition">info@fslawpc.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2025 FS Law, A Professional Corporation. All
+                        rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-500 hover:text-white text-sm transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-500 hover:text-white text-sm transition">Terms of Service</a>
+                        <a href="#" class="text-gray-500 hover:text-white text-sm transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Contact Form -->
+    <div x-cloak>
+        <!-- Modal Background -->
+        <div x-show="messageModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+            <!-- Modal Content -->
+            <div x-show="messageModal" class="bg-white rounded-xl shadow-2xl w-full max-w-md relative" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95" @click.away="messageModal = false">
+                <!-- Close Button -->
+                <button @click="messageModal = false" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                
+                <!-- Modal Header -->
+                <div class="p-6 border-b border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-800">Write to us</h3>
+                </div>
+                
+                <!-- Modal Body -->
+                <div class="p-6">
+                    <form class="space-y-4">
+                        <div>
+                            <label for="popup-name" class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input type="text" id="popup-name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                        </div>
+                        
+                        <div>
+                            <label for="popup-email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="popup-email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                        </div>
+                        
+                        <div>
+                            <label for="popup-phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="popup-phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                        </div>
+                        
+                        <div>
+                            <label for="popup-message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="popup-message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"></textarea>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" id="popup-terms" name="terms" class="w-4 h-4 text-primary focus:ring-primary border-gray-300 rounded">
+                            <label for="popup-terms" class="ml-2 block text-sm text-gray-700">
+                                I agree to <a href="#" class="text-blue-500 hover:underline">terms of use</a> and <a href="#" class="text-blue-500 hover:underline">privacy policy</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary-dark transition-all duration-300">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary hover:bg-primary-dark text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 opacity-0 translate-y-10 focus:outline-none z-50">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

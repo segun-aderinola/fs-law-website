@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - FS Law</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body x-data="{ messageModal: false }">
+    <!-- Header -->
+    <header class="fixed w-full bg-white/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300"
+        x-data="{ mobileMenuOpen: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)"
+        :class="{ 'py-2': scrolled, 'py-4': !scrolled }">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="https://res.cloudinary.com/deh3s35go/image/upload/v1746520687/fslawpc-logo-3.82ef1b86_dmo2nv.svg"
+                    class="h-12" alt="FS Law Logo">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-light transition-colors font-medium">Home</a>
+                <a href="services.html"
+                    class="text-gray-700 hover:text-primary transition-colors font-medium">Services</a>
+                <a href="about.html" class="text-primary hover:text-light font-medium">About</a>
+                <a href="contact.html"
+                    class="hover:text-primary transition-colors font-medium">Contact</a>
+            </nav>
+
+            <!-- CTA Buttons -->
+            <div class="hidden lg:flex items-center space-x-3">
+                <button class="px-4 py-2 rounded-lg btn-outline text-sm font-medium">Consultation</button>
+                <button class="px-4 py-2 rounded-lg btn-primary text-sm font-medium">Make a payment</button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" x-transition
+            class="lg:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t">
+            <nav class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-2">Home</a>
+                <a href="services.html" class="text-gray-700 hover:text-primary font-medium py-2">Services</a>
+                <a href="about.html" class="text-primary font-medium py-2">About</a>
+                <a href="contact.html" class="text-primary hover:text-light font-medium py-2">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-16 min-h-screen flex items-center bg-cover bg-center" 
+             style="background-image: url('https://res.cloudinary.com/deh3s35go/image/upload/v1747776408/lady-justice-2388500_1280_tu0k6u.jpg')">
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-8">
+                    <i class="fas fa-balance-scale text-6xl text-gold mb-6 icon-float"></i>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+                    Over <span class="text-gold">40 Years</span> of Combined Legal Experience
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed">
+                    Our mission is to provide excellent representation while implementing customized legal services for our clients. Our core values are Excellence, Reliability & Collaboration.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#team" class="px-8 py-4 rounded-full btn-primary text-lg font-medium">
+                        Meet Our Team
+                    </a>
+                    <a href="contact.html" class="px-8 py-4 rounded-full btn-outline text-lg font-medium text-white border-white hover:bg-white hover:text-primary">
+                        Schedule Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-primary mb-6">Our Core Values</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    At FS Law, we are guided by our commitment to excellence, reliability, and collaboration in every aspect of our practice.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Excellence Card -->
+                <div class="values-card bg-primary text-white rounded-2xl shadow-xl overflow-hidden scroll-reveal">
+                    <div class="p-10">
+                        <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-8">
+                            <i class="fas fa-award text-4xl"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-6">Excellence</h3>
+                        <p class="text-white/90 text-lg leading-relaxed">
+                            With a combined experience of 40 years, our attorneys have shared aspirations, common values and a strong work ethic which contributes to deliver excellent client service across the globe.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Reliability Card -->
+                <div class="values-card bg-secondary text-white rounded-2xl shadow-xl overflow-hidden scroll-reveal">
+                    <div class="p-10">
+                        <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-8">
+                            <i class="fas fa-shield-alt text-4xl"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-6">Reliability</h3>
+                        <p class="text-white/90 text-lg leading-relaxed">
+                            We consider the business of our clients as our business and provide a personalized, excellent and reliable service. Our commitment to excellence combined with reliability and collaboration leads to deliver the best results for our clients.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Collaboration Card -->
+                <div class="values-card bg-white text-gray-800 rounded-2xl shadow-xl overflow-hidden scroll-reveal">
+                    <div class="p-10">
+                        <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-8">
+                            <i class="fas fa-handshake text-primary text-4xl"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-6">Collaboration</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            Collaboration leads us to explore novel strategies to better serve our clients and deliver high quality, cost-effective, personal service. Our firm's success and strength is based on a culture based on personal relationships, and a shared passion for the best interests of our clients.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Content Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal">
+                    <h2 class="text-5xl font-bold text-primary mb-8">Our Commitment</h2>
+                    <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+                        At FS Law, we combine over 40 years of legal expertise to deliver exceptional service across business and immigration law. Our team is committed to providing customized legal solutions tailored to your specific needs.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                        We understand that every client has unique challenges and goals. That's why we take the time to listen, understand, and develop strategies that align with your objectives. Our approach is client-centered, focusing on building long-term relationships based on trust and results.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        With a global perspective and local expertise, we serve clients from around the world, providing comprehensive legal support that bridges international boundaries and helps navigate complex legal landscapes.
+                    </p>
+                </div>
+
+                <div class="relative scroll-reveal">
+                    <div class="service-card p-8">
+                        <img src="https://res.cloudinary.com/deh3s35go/image/upload/v1747776407/justice-4592723_1280_rfg2tf.jpg"
+                             alt="FS Law Team" class="w-full h-80 object-cover rounded-xl mb-8">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">Our Expert Team</h3>
+                                <p class="text-gray-600">Combined 40+ years of legal excellence</p>
+                            </div>
+                            <a href="#team" class="text-primary hover:underline flex items-center font-medium">
+                                Meet the team
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-primary mb-6">Why Choose FS Law</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    With our combined experience and dedication to client success, we provide exceptional legal services tailored to your specific needs.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Experience -->
+                <div class="service-card p-8 text-center scroll-reveal">
+                    <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-user-tie text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Experienced Team</h3>
+                    <p class="text-gray-700 leading-relaxed">Our attorneys bring over four decades of combined experience in business and immigration law to every case we handle.</p>
+                </div>
+
+                <!-- Global Approach -->
+                <div class="service-card p-8 text-center scroll-reveal">
+                    <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-globe-americas text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Global Reach</h3>
+                    <p class="text-gray-700 leading-relaxed">We serve clients worldwide, providing comprehensive legal solutions for international business and immigration matters.</p>
+                </div>
+
+                <!-- Client Focus -->
+                <div class="service-card p-8 text-center scroll-reveal">
+                    <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-handshake text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Client-Centered</h3>
+                    <p class="text-gray-700 leading-relaxed">We prioritize your needs, delivering personalized service and tailored legal strategies to achieve your specific goals.</p>
+                </div>
+
+                <!-- Multidisciplinary -->
+                <div class="service-card p-8 text-center scroll-reveal">
+                    <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-balance-scale text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Diverse Expertise</h3>
+                    <p class="text-gray-700 leading-relaxed">Our team brings together complementary skills and cultural insights to solve complex legal challenges across borders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-primary mb-6">Meet Our Partners</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Our team of experienced attorneys brings diverse expertise across business and immigration law.
+                </p>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Busayo Fasidi -->
+                <div x-data="{ expanded: false }" class="scroll-reveal">
+                    <div class="team-card">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-0">
+                            <div class="team-img-container lg:col-span-1">
+                                <img src="https://res.cloudinary.com/deh3s35go/image/upload/v1748170163/busayo.a07cf0ca_heyj4o.jpg"
+                                     alt="Busayo Fasidi" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-10 lg:col-span-2">
+                                <h3 class="text-3xl font-bold mb-2">Busayo Fasidi</h3>
+                                <p class="text-primary text-lg font-medium mb-6">Attorney at Law</p>
+
+                                <p class="text-gray-700 mb-6 text-lg leading-relaxed">
+                                    Olubusayo 'Busayo' Fasidi is an entrepreneur and attorney with over 18 years of legal experience. She is a partner at FS Law PC. She is licensed to practice law in the States of Texas and New York and in Nigeria. Her experience includes counseling and representing corporations in general corporate and commercial matters, corporate and family immigration, and employment law.
+                                </p>
+
+                                <p class="text-gray-700 mb-8 text-lg leading-relaxed">
+                                    As an entrepreneur, Busayo understands the intricacies of growing a start-up company. She provides support to growing business by serving as a legal and corporate consultant. She has worked as outside general counsel for various businesses including an engineering firm in Houston.
+                                </p>
+
+                                <div class="flex space-x-4 mb-8">
+                                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                                        <i class="fab fa-linkedin-in text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                                        <i class="fab fa-twitter text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                                        <i class="fas fa-envelope text-2xl"></i>
+                                    </a>
+                                </div>
+
+                                <button @click="expanded = !expanded"
+                                        class="inline-flex items-center text-primary font-semibold hover:underline read-more-btn text-lg"
+                                        :class="{'active': expanded}">
+                                    <span x-text="expanded ? 'Read Less' : 'Read More'">Read More</span>
+                                    <i class="fas fa-chevron-down ml-2 text-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Busayo expanded content -->
+                        <div class="bio-details" :class="{'active': expanded}">
+                            <div class="p-10 pt-0">
+                                <p class="text-gray-700 mb-8 text-lg leading-relaxed">
+                                    Busayo also has experience representing individuals and families in family-based immigrant and nonimmigrant US visa applications, asylum, and removal proceedings. She currently serves as an Independent Hearing Examiner with the Texas Education Agency, where she presides over disputes relating to certain Teacher Employment Contracts.
+                                </p>
+                            
+                                <p class="text-gray-700 mb-10 text-lg leading-relaxed">
+                                    An ardent advocate against abuse, Olubusayo is the host of the podcast 'Broken Road by Busayo' where she proclaims healing, liberation, and freedom from abuse. She has a Master of Arts in Clinical Mental Health Counseling from the Houston Baptist University.
+                                </p>
+                            
+                                <div class="credentials-container p-8">
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                                        <!-- Education -->
+                                        <div class="credentials-section">
+                                            <div class="section-icon bg-pink-100">
+                                                <i class="fas fa-graduation-cap text-pink-500 text-2xl"></i>
+                                            </div>
+                                            <h4 class="text-xl font-bold text-center mb-6">Education</h4>
+                                            <ul class="space-y-4">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">University of Houston Law Center: LLM</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">University of Ibadan: LLB</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">Nigerian Law School: BL</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">Houston Baptist University: MA Clinical Mental Health Counseling</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                            
+                                        <!-- Bar Admissions -->
+                                        <div class="credentials-section">
+                                            <div class="section-icon bg-purple-100">
+                                                <i class="fas fa-gavel text-purple-500 text-2xl"></i>
+                                            </div>
+                                            <h4 class="text-xl font-bold text-center mb-6">Bar Admissions</h4>
+                                            <ul class="space-y-4">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">State Bar of Texas</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">State Bar of New York</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">U.S District Court Southern District of Texas</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">U.S. District Court Northern District of Texas</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">Supreme Court of Nigeria</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                            
+                                        <!-- Professional Affiliations -->
+                                        <div class="credentials-section">
+                                            <div class="section-icon bg-blue-100">
+                                                <i class="fas fa-certificate text-blue-500 text-2xl"></i>
+                                            </div>
+                                            <h4 class="text-xl font-bold text-center mb-6">Professional Affiliations</h4>
+                                            <ul class="space-y-4">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">Member, American Immigration Law Association</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">Member, College of the State Bar of Texas</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">Member, American Bar Association</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">Member, American Counseling Association</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jeeva Sugathan -->
+                <div x-data="{ expanded2: false }" class="scroll-reveal">
+                    <div class="team-card">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-0">
+                            <div class="team-img-container lg:col-span-1">
+                                <img src="https://res.cloudinary.com/deh3s35go/image/upload/v1748170164/jeeva.3d9273e5_xfscto.jpg" 
+                                     alt="Jeeva Sugathan" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-10 lg:col-span-2">
+                                <h3 class="text-3xl font-bold mb-2">Jeeva Sugathan</h3>
+                                <p class="text-primary text-lg font-medium mb-6">Attorney at Law</p>
+                                
+                                <p class="text-gray-700 mb-6 text-lg leading-relaxed">
+                                    Jeeva Sugathan is a Partner at FS Law PC and has over 22 years of legal experience. She is licensed to practice law in the State of Texas and India. As a practitioner, Jeeva has extensive experience in a broad range of corporate and commercial transactions as well as employment and investor based immigration.
+                                </p>
+                                
+                                <p class="text-gray-700 mb-8 text-lg leading-relaxed">
+                                    Jeeva advises on all facets of corporate law and employment based and investor visas for her growing base of multinational clients. She advises clients from setting up their business and providing general counsel services including corporate governance, compliance and dispute resolution. Jeeva is a trained mediator and strives to help her clients through alternative dispute resolution methods.
+                                </p>
+                                
+                                <div class="flex space-x-4 mb-8">
+                                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                                        <i class="fab fa-linkedin-in text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                                        <i class="fab fa-twitter text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                                        <i class="fas fa-envelope text-2xl"></i>
+                                    </a>
+                                </div>
+                                
+                                <button @click="expanded2 = !expanded2" 
+                                        class="inline-flex items-center text-primary font-semibold hover:underline read-more-btn text-lg" 
+                                        :class="{'active': expanded2}">
+                                    <span x-text="expanded2 ? 'Read Less' : 'Read More'">Read More</span>
+                                    <i class="fas fa-chevron-down ml-2 text-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Jeeva expanded content -->
+                        <div class="bio-details" :class="{'active': expanded2}">
+                            <div class="p-10 pt-0">
+                                <p class="text-gray-700 mb-8 text-lg leading-relaxed">
+                                    Her immigration practice includes advising on employment-based visas, such as EB-1,EB-2/EB-3 labor certification, extraordinary abilities and outstanding professors and researchers; L-1A executive transfers; investor visas, such as EB-5 and E-2; visas for professional athletes, artists, and performers; and visas for health care professionals.
+                                </p>
+
+                                <p class="text-gray-700 mb-8 text-lg leading-relaxed">
+                                    Prior to entering private practice, Jeeva worked for several prominent companies and law firms, including an American multinational oil and gas corporation, where she focused on oil and gas law and a power transmission company where she handled corporate counsel duties and litigation management. Her experience also include working for immigration law firms in Houston Texas.
+                                </p>
+
+                                <p class="text-gray-700 mb-10 text-lg leading-relaxed">
+                                    She has the knowledge and experience to give practical and reliable legal advice for the challenges faced by her clients.
+                                </p>
+
+                                <div class="credentials-container p-8">
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                                        <!-- Education -->
+                                        <div class="credentials-section">
+                                            <div class="section-icon bg-pink-100">
+                                                <i class="fas fa-graduation-cap text-pink-500 text-2xl"></i>
+                                            </div>
+                                            <h4 class="text-xl font-bold text-center mb-6">Education</h4>
+                                            <ul class="space-y-4">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">University of Houston Law Center: LLM</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">University of Kerala India: LLB, M.B.L, LLM</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Bar Admissions -->
+                                        <div class="credentials-section">
+                                            <div class="section-icon bg-purple-100">
+                                                <i class="fas fa-gavel text-purple-500 text-2xl"></i>
+                                            </div>
+                                            <h4 class="text-xl font-bold text-center mb-6">Bar Admissions</h4>
+                                            <ul class="space-y-4">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">State Bar of Texas</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">U.S District Court Southern District of Texas</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">Bar Council of India</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Professional Affiliations -->
+                                        <div class="credentials-section">
+                                            <div class="section-icon bg-blue-100">
+                                                <i class="fas fa-certificate text-blue-500 text-2xl"></i>
+                                            </div>
+                                            <h4 class="text-xl font-bold text-center mb-6">Professional Affiliations</h4>
+                                            <ul class="space-y-4">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">Member, American Immigration Lawyers Association</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">Member, American Bar Association</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-check-circle mt-1 mr-3 text-primary flex-shrink-0"></i>
+                                                    <span class="text-gray-700">Member, Houston Bar Association</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 bg-primary">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Ready to Work With Our Expert Team?
+                </h2>
+                <p class="text-xl text-white/90 mb-12">
+                    Schedule a consultation today to discuss your legal needs with our experienced attorneys.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="contact.html" class="px-10 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+                        Schedule Consultation
+                    </a>
+                    <a href="contact.html" class="px-10 py-4 rounded-full border-2 border-white text-white font-bold text-lg hover:bg-white hover:text-primary transition-all duration-300">
+                        Contact Us Today
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <!-- Footer -->
+       <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Logo & Info -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="https://res.cloudinary.com/deh3s35go/image/upload/v1746520687/fslawpc-logo-3.82ef1b86_dmo2nv.svg"
+                            alt="FS Law Logo" class="h-12">
+                    </div>
+                    <p class="text-gray-400 mb-4">Texas Business and Immigration Law Firm serving clients worldwide with
+                        over 40 years of combined legal experience.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Our Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html#immigration"
+                                class="text-gray-400 hover:text-white transition">Immigration Law</a></li>
+                        <li><a href="services.html#business" class="text-gray-400 hover:text-white transition">Business
+                                Law</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+                            <span class="text-gray-400">6911 South Highway 6, Suite 210<br>Houston, TX 77083</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary"></i>
+                            <a href="tel:+18328664580" class="text-gray-400 hover:text-white transition">+1 832 866
+                                4580</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-primary"></i>
+                            <a href="https://wa.me/17139697558" class="text-gray-400 hover:text-white transition">+1 713
+                                969 7558</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary"></i>
+                            <span class="text-gray-400">India: <a href="tel:+918547479258"
+                                    class="hover:text-white transition">+91 854 747 9258</a></span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary"></i>
+                            <span class="text-gray-400">Qatar: <a href="tel:+97466333189"
+                                    class="hover:text-white transition">+974 6633 3189</a></span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            <a href="mailto:info@fslawpc.com"
+                                class="text-gray-400 hover:text-white transition">info@fslawpc.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2025 FS Law, A Professional Corporation. All
+                        rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-500 hover:text-white text-sm transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-500 hover:text-white text-sm transition">Terms of Service</a>
+                        <a href="#" class="text-gray-500 hover:text-white text-sm transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Contact Form -->
+    <div x-show="messageModal" x-cloak class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" x-transition>
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md relative" @click.away="messageModal = false">
+            <button @click="messageModal = false" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+
+            <div class="p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-gray-800">Write to us</h3>
+            </div>
+
+            <div class="p-6">
+                <form class="space-y-4">
+                    <div>
+                        <label for="popup-name" class="block text-gray-700 font-medium mb-2">Name</label>
+                        <input type="text" id="popup-name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                    </div>
+                    <div>
+                        <label for="popup-email" class="block text-gray-700 font-medium mb-2">Email</label>
+                        <input type="email" id="popup-email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                    </div>
+                    <div>
+                        <label for="popup-phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                        <input type="tel" id="popup-phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                    </div>
+                    <div>
+                        <label for="popup-message" class="block text-gray-700 font-medium mb-2">Message</label>
+                        <textarea id="popup-message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"></textarea>
+                    </div>
+                    <button type="submit" class="w-full px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary-dark transition-all duration-300">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
