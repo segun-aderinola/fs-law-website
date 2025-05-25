@@ -13,12 +13,12 @@
         "destination": "/services.html"
       },
       {
-        "source": "/business",
-        "destination": "/business.html"
+        "source": "/services/business",
+        "destination": "/services/business.html"
       },
       {
-        "source": "/immigration",
-        "destination": "/immigration.html"
+        "source": "/services/immigration",
+        "destination": "/services/immigration.html"
       },
       {
         "source": "/",
