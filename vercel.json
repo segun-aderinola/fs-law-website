@@ -11,12 +11,30 @@
       {
         "source": "/services",
         "destination": "/services.html"
+      },
+      {
+        "source": "/business",
+        "destination": "/business.html"
+      },
+      {
+        "source": "/immigration",
+        "destination": "/immigration.html"
       }
     ],
     "redirects": [
       {
         "source": "/about.html",
         "destination": "/about",
+        "permanent": true
+      },
+      {
+        "source": "/business.html",
+        "destination": "/business",
+        "permanent": true
+      },
+      {
+        "source": "/immigration.html",
+        "destination": "/immigration",
         "permanent": true
       },
       {
